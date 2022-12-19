@@ -48,65 +48,6 @@ public class TicTacToe {
         board[row - 1][col - 1] = player2;
     }
 
-    public void canEndGameP1(){
-        if (board[0][0] == player1) {
-            if(board[0][1] == player1 && board[0][2] == empty){
-                board[0][2] = player1;
-            }
-            else if(board[0][2] == player1 && board[0][1] == empty){
-                board[0][1] = player1;
-            }
-            else if(board[1][0] == player1 && board[2][0] == empty){
-                board[2][0] = player1;
-            }
-            else if(board[2][0] == player1 && board[1][0] == empty){
-                board[1][0] = player1;
-            }
-        }
-        else if (board[2][0] == player1) {
-            if(board[0][0] == player1 && board[1][0] == empty){
-                board[1][0] = player1;
-            }
-            else if(board[1][0] == player1 && board[0][0] == empty){
-                board[0][0] = player1;
-            }
-            else if(board[2][1] == player1 && board[2][2] == empty){
-                board[2][2] = player1;
-            }
-            else if(board[2][2] == player1 && board[2][1] == empty){
-                board[2][1] = player1;
-            }
-        }
-        else if (board[0][2] == player1) {
-            if(board[0][0] == player1 && board[0][1] == empty){
-                board[0][1] = player1;
-            }
-            else if(board[0][1] == player1 && board[0][0] == empty){
-                board[0][0] = player1;
-            }
-            else if(board[1][2] == player1 && board[2][2] == empty){
-                board[2][2] = player1;
-            }
-            else if(board[2][2] == player1 && board[1][2] == empty){
-                board[1][2] = player1;
-            }
-        }
-        else if (board[2][2] == player1) {
-            if(board[0][2] == player1 && board[1][2] == empty){
-                board[1][2] = player1;
-            }
-            else if(board[1][2] == player1 && board[0][2] == empty){
-                board[0][2] = player1;
-            }
-            else if(board[2][0] == player1 && board[2][1] == empty){
-                board[2][1] = player1;
-            }
-            else if(board[2][1] == player1 && board[2][0] == empty){
-                board[2][0] = player1;
-            }
-        }
-    }
-
     public void setMoveComputerP1(){
         boolean freeSpace = false;
         while(!freeSpace){
