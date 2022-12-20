@@ -13,11 +13,11 @@ public class Main {
         int col = 0;
 
         char moveFirst = input.next().toUpperCase().charAt(0);
+        System.out.println();
+        game.initializeBoard();
+        game.printBoard();
+        System.out.println();
         if(moveFirst == 'Y') {
-            System.out.println();
-            game.initializeBoard();
-            game.printBoard();
-            System.out.println();
             while (game.getResult() == 0) {
                 System.out.print("Enter row: ");
                 row = input.nextInt();
@@ -40,29 +40,34 @@ public class Main {
                 System.out.println("---------");
                 System.out.println("Machine's move:");
                 System.out.println("---------");
-                game.setMoveComputerP2();
+
+                if(game.checkWinningMove() != 0){
+                    game.setSpecialMoveP2(game.checkWinningMove());
+                }
+                else{
+                    game.setMoveComputerP2();
+                }
+
+
+
                 game.printBoard();
                 game.getResult();
             }
             System.out.println();
             System.out.println();
             switch (game.getResult()){
-                case 0:
-                    System.out.println("DRAW!");
-                    break;
                 case 1:
                     System.out.println("YOU WIN!");
                     break;
                 case 2:
                     System.out.println("COMPUTER WINS!");
                     break;
+                case 3:
+                    System.out.println("DRAW!");
+                    break;
             }
         }
         else{
-            System.out.println();
-            game.initializeBoard();
-            game.printBoard();
-            System.out.println();
             while (game.getResult() == 0) {
 
                 valid = false;
@@ -70,13 +75,17 @@ public class Main {
                 System.out.println("---------");
                 System.out.println("Machine's move:");
                 System.out.println("---------");
-                game.setMoveComputerP1();
+                if(game.checkWinningMove() != 0){
+                    game.setSpecialMoveP1(game.checkWinningMove());
+                }
+                else{
+                    game.setMoveComputerP1();
+                }
                 game.printBoard();
                 game.getResult();
                 if(game.getResult() != 0){
                     continue;
                 }
-
 
                 while (!valid) {
                     System.out.print("Enter row: ");
@@ -91,6 +100,7 @@ public class Main {
                     }
                 }
                 game.setMovePlayer2(row, col);
+
                 game.printBoard();
                 game.getResult();
             }
@@ -98,15 +108,19 @@ public class Main {
             System.out.println();
             System.out.println();
             switch (game.getResult()){
-                case 0:
-                    System.out.println("DRAW!");
-                    break;
                 case 1:
                     System.out.println("COMPUTER WINS!");
                     break;
                 case 2:
                     System.out.println("YOU WIN!");
                     break;
+                case 3:
+                    System.out.println("DRAW!");
+                    break;
+
+
+
+
             }
         }
 
