@@ -12,7 +12,18 @@ public class Main {
         int row = 0;
         int col = 0;
 
-        char moveFirst = input.next().toUpperCase().charAt(0);
+        boolean validChar = false;
+        char moveFirst = ' ';
+        while(!validChar){
+            moveFirst = input.next().toUpperCase().charAt(0);
+            if(moveFirst == 'Y' || moveFirst == 'N'){
+                validChar = true;
+            }
+            else{
+                System.out.println("Invalid. Enter again (Y/N): ");
+            }
+        }
+
         System.out.println();
         game.initializeBoard();
         game.printBoard();
